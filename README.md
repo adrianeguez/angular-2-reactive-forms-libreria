@@ -6,5 +6,5 @@ Existen un conjunto de funciones para poder generar de una manera rápida una cl
 
 ## Uso
 
-### 1) Importar libreria
+TO DO...
 
