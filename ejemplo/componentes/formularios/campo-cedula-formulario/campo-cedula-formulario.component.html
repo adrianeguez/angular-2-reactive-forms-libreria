@@ -1,0 +1,24 @@
+<form novalidate [formGroup]="cedula.campoCedulaFormGroup">
+  <div class="row">
+    <div class="col-sm-12">
+      <label for="busquedaCedulaId">Cédula</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text"
+             id="busquedaCedulaId"
+             required
+             [formControlName]="cedula.mensajesValidacionBusquedaCedula.nombreInput"
+             [name]="cedula.mensajesValidacionBusquedaCedula.nombreInput"
+             [placeholder]="cedula.mensajesValidacionBusquedaCedula.tooltip"
+             [maxlength]="cedula.mensajesValidacionBusquedaCedula.maxlength.valor"
+             [minlength]="cedula.mensajesValidacionBusquedaCedula.minlength.valor"
+             [title]="cedula.mensajesValidacionBusquedaCedula.title">
+    </div>
+    <div class="col-sm-12">
+      <div class="alert alert-warning" role="alert"
+           *ngfor=" let mensaje of cedula.mensajesValidacionBusquedaCedula.mensajes.length>0">
+        {{mensaje}}
+      </div>
+    </div>
+  </div>
+</form>

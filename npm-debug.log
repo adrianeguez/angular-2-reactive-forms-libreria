@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'login' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.4
+4 verbose adduser before first PUT { _id: 'org.couchdb.user:adrianeguez',
+4 verbose adduser   name: 'adrianeguez',
+4 verbose adduser   password: 'XXXXX',
+4 verbose adduser   email: 'eadepto@hotmail.com',
+4 verbose adduser   type: 'user',
+4 verbose adduser   roles: [],
+4 verbose adduser   date: '2017-11-14T20:17:03.741Z' }
+5 verbose request uri http://registry.npmjs.org/-/user/org.couchdb.user:adrianeguez
+6 verbose request new user, so can't send auth
+7 info attempt registry request try #1 at 15:17:03
+8 verbose request id 354cb32636d5820f
+9 http request PUT http://registry.npmjs.org/-/user/org.couchdb.user:adrianeguez
+10 info retry will retry, error on last attempt: Error: Invalid protocol: null
+11 info attempt registry request try #2 at 15:17:13
+12 http request PUT http://registry.npmjs.org/-/user/org.couchdb.user:adrianeguez
+13 info retry will retry, error on last attempt: Error: Invalid protocol: null
+14 info attempt registry request try #3 at 15:18:13
+15 http request PUT http://registry.npmjs.org/-/user/org.couchdb.user:adrianeguez
+16 verbose request invalidating C:\Users\vaes220617\AppData\Roaming\npm-cache\registry.npmjs.org\-\user\org.couchdb.user_3Aadrianeguez on PUT
+17 verbose adduser back [ Error: Invalid protocol: null
+17 verbose adduser       at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+17 verbose adduser       at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+17 verbose adduser       at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+17 verbose adduser       at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+17 verbose adduser       at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+17 verbose adduser       at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+17 verbose adduser       at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+17 verbose adduser       at ontimeout (timers.js:386:11)
+17 verbose adduser       at tryOnTimeout (timers.js:250:5)
+17 verbose adduser       at Timer.listOnTimeout (timers.js:214:5),
+17 verbose adduser   undefined,
+17 verbose adduser   undefined ]
+18 verbose stack Error: Invalid protocol: null
+18 verbose stack     at Request.init (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:460:31)
+18 verbose stack     at new Request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:8)
+18 verbose stack     at request (C:\Program Files\nodejs\node_modules\npm\node_modules\request\index.js:55:10)
+18 verbose stack     at CachingRegistryClient.makeRequest (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:158:13)
+18 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:66:17
+18 verbose stack     at RetryOperation._fn (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\attempt.js:18:5)
+18 verbose stack     at Timeout._onTimeout (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\retry\lib\retry_operation.js:68:10)
+18 verbose stack     at ontimeout (timers.js:386:11)
+18 verbose stack     at tryOnTimeout (timers.js:250:5)
+18 verbose stack     at Timer.listOnTimeout (timers.js:214:5)
+19 verbose cwd D:\Respaldo\sri-linea-web\src\app\compartidos
+20 error Windows_NT 6.1.7601
+21 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "login"
+22 error node v6.11.4
+23 error npm  v3.10.10
+24 error Invalid protocol: null
+25 error If you need help, you may report this error at:
+25 error     <https://github.com/npm/npm/issues>
+26 verbose exit [ 1, true ]

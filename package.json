@@ -1,0 +1,27 @@
+{
+  "name": "@ae/libreria-form-builder",
+  "version": "1.0.0",
+  "description": "Esta es una librería para acelerar el desarrollo de formularios reactivos en Angular 2+",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianeguez/angular-2-reactive-forms-libreria.git"
+  },
+  "keywords": [
+    "angular",
+    "ng",
+    "reactive",
+    "forms",
+    "library",
+    "libreria"
+  ],
+  "author": "Adrian Eguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adrianeguez/angular-2-reactive-forms-libreria/issues"
+  },
+  "homepage": "https://github.com/adrianeguez/angular-2-reactive-forms-libreria#readme"
+}
