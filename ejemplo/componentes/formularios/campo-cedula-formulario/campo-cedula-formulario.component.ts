@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CampoCedulaClass} from '../../../clases/campo-ruc-cedula-class';
-import {FormBuilder} from '@angular/forms';
 import {encerarFormBuilder} from '../../../../libreria/funciones/form-builder/encerar-form-builder';
 import {AbstractControl, FormBuilder} from '@angular/forms';
 import {campoValido} from '../../../../libreria/funciones/form-builder/campo-valido';
