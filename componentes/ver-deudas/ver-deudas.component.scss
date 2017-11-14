@@ -1,0 +1,107 @@
+/*
+ * Nombre: medios-pago.component.scss
+ * Descripción: Estilos del componente medios pago
+ * Dependencias: ninguna
+ * Autor: Vicente Adrián Egüez Sarzosa
+ * Consideraciones_generales:
+ * Copyright 2017 Servicio de Rentas Internas (www.sri.gob.ec). Todos los derechos reservados.
+*/
+@import '../../../../assets/recursos/sass/paleta_de_colores';
+
+/*
+ * Nombre: medios-pago.component.scss
+ * Descripción: Estilos del componente medios pago
+ * Dependencias: ninguna
+ * Autor: Vicente Adrián Egüez Sarzosa
+ * Consideraciones_generales:
+ * Copyright 2017 Servicio de Rentas Internas (www.sri.gob.ec). Todos los derechos reservados.
+*/
+@import '../../../../assets/recursos/sass/paleta_de_colores';
+
+.tamano-guia-usuario {
+  margin-bottom: 0;
+  height: 97px;
+  padding: 3px;
+  font-size: 60px;
+  padding-top: 16px;
+}
+
+.tamano-minimo{
+  min-width:133px;
+}
+
+
+.letras-guia-contribuyente{
+  font-weight: bold;
+  color: $GrisFuertePaleta;
+  padding-top: 23px;
+  line-height: 24px;
+  font-size: 21px;
+}
+.guia:hover{
+  color: $GrisFuertePaleta;
+  text-decoration: none;
+}
+
+.guia-espaciado{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.contenedor-guia-uso{
+  max-width: 154px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.animar-icono-medios-deudas{
+  animation-name: icono-medios-deudas ;
+  animation-duration: 16s;
+  animation-delay: 16s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes icono-medios-deudas {
+  0%   {
+    -ms-transform: translateY(0px); /* IE 9 */
+    -webkit-transform: translateY(0px); /* Safari */
+    transform: translateY(0px);
+  }
+  50%   {
+    -ms-transform: translateY(0px); /* IE 9 */
+    -webkit-transform: translateY(0px); /* Safari */
+    transform: translateY(0px);
+  }
+
+  60%  {
+    -ms-transform: translateY(-15px); /* IE 9 */
+    -webkit-transform: translateY(-15px); /* Safari */
+    transform: translateY(-15px);
+  }
+  70%  {
+    -ms-transform: translateY(-6px); /* IE 9 */
+    -webkit-transform: translateY(-6px); /* Safari */
+    transform: translateY(-6px);
+  }
+  80%  {
+    -ms-transform: translateY(-15px); /* IE 9 */
+    -webkit-transform: translateY(-15px); /* Safari */
+    transform: translateY(-15px);
+  }
+  90%  {
+    -ms-transform: translateY(-6px); /* IE 9 */
+    -webkit-transform: translateY(-6px); /* Safari */
+    transform: translateY(-6px);
+  }
+  100% {
+    -ms-transform: translateY(0px); /* IE 9 */
+    -webkit-transform: translateY(0px); /* Safari */
+    transform: translateY(0px);
+  }
+}
+
+.sri-menu-icon-deudas:before {
+    content: "\E90C";
+    color:$TurquesFuertePaleta;
+}

@@ -5,10 +5,11 @@ export function encerarFormBuilder(clase: any) {
   Object.keys(clase)
     .map((nombrePropiedad) => {
       if (nombrePropiedad.includes('mensajesValidacion')) {
-        formBuilder[nombrePropiedad] = generarCampoFormBuilder(nombrePropiedad, clase);
+        formBuilder[clase[nombrePropiedad].nombreInput] = generarCampoFormBuilder(nombrePropiedad, clase);
       }
       return nombrePropiedad;
     });
+
   return formBuilder;
 }
 

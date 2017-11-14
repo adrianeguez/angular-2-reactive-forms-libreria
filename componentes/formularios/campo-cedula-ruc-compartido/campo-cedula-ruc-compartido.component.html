@@ -1,0 +1,30 @@
+<form novalidate [formGroup]="rucCedula.cedulaRucFormGroup" style="margin-left: 500px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <label class="titulo-campo" for="busquedaCedulaRucId">
+        <span *ngIf="rucCedula.validarCedula && rucCedula.validarRUC">Cédula / RUC</span>
+
+        <span *ngIf="rucCedula.validarCedula && !rucCedula.validarRUC">Cédula</span>
+        <span *ngIf="!rucCedula.validarCedula && rucCedula.validarRUC">RUC</span>
+      </label>
+    </div>
+    <div class="col-sm-12">
+
+      <input type="text"
+             pInputText
+             class="sri-input-bloque"
+             id="busquedaCedulaRucId"
+             required
+             [formControlName]="rucCedula.mensajesValidacionBusquedaRucCedula.nombreInput"
+             [name]="rucCedula.mensajesValidacionBusquedaRucCedula.nombreInput"
+             [placeholder]="rucCedula.mensajesValidacionBusquedaRucCedula.tooltip"
+             [maxlength]="rucCedula.mensajesValidacionBusquedaRucCedula.maxlength.valor"
+             [minlength]="rucCedula.mensajesValidacionBusquedaRucCedula.minlength.valor"
+             [title]="rucCedula.mensajesValidacionBusquedaRucCedula.title">
+    </div>
+    <div class="col-sm-12">
+      <p-messages class="animated fadeInUp" [(value)]="rucCedula.mensajesValidacionBusquedaRucCedula.mensajes"
+                  [closable]="false"></p-messages>
+    </div>
+  </div>
+</form>

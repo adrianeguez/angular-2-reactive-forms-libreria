@@ -8,8 +8,9 @@ export interface ObjetoMensajeValidacionInterfaz {
   minlength?: MensajeValidacionInterfaz;
   maxlength?: MensajeValidacionInterfaz;
   pattern?: MensajeValidacionInterfaz;
-  mensaje: string[];
-  tooltip: string;
-  nombreInput: string;
+  mensajes?: any[];
+  tooltip?: string;
+  nombreInput?: string;
+  title?: string;
 }
 

@@ -1,0 +1,38 @@
+/*
+ * Nombre: guia-uso.component.scss
+ * Descripción: Estilos del componente guia uso
+ * Dependencias: ninguna
+ * Autor: Vicente Adrián Egüez Sarzosa
+ * Consideraciones_generales:
+ * Copyright 2017 Servicio de Rentas Internas (www.sri.gob.ec). Todos los derechos reservados.
+*/
+
+@import '../../../../assets/recursos/sass/paleta_de_colores';
+
+.tamano-guia-usuario {
+  max-height: 38px;
+  margin-top: 11px;
+  margin-bottom: 0;
+}
+
+.letras-guia-contribuyente{
+  padding-top: 18px;
+  font-weight: bold;
+  color: $GrisFuertePaleta;
+  line-height: 12px;
+}
+.guia:hover{
+  color: $GrisFuertePaleta;
+  text-decoration: none;
+}
+
+.guia-espaciado{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.contenedor-guia-uso{
+  max-width: 154px;
+  margin-left: auto;
+  margin-right: auto;
+}

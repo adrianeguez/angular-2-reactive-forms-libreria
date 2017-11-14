@@ -5,35 +5,92 @@ import {establecerMensajesDeValidacionComunes} from '../funciones/form-builder/g
 import {establecerObjetoValidacionPersonalizado} from '../funciones/form-builder/establecer-objeto-validacion-personalizado';
 import {ConfiguracionFormBuilder} from '../interfaces/configuracion-form-builder';
 import {encerarConfiguracionFormBuilder} from '../funciones/form-builder/encerar-configuracion-form-builder';
-import {validadorCedula} from '../funciones/form-builder/validadores-comunes/validador-cedula';
-import {validadorRuc} from '../funciones/form-builder/validadores-comunes/validador-ruc';
 import {ObjetoConfiguracion} from '../interfaces/objeto-configuracion ';
 import {ItemObjetoConfiguracion} from '../interfaces/item-objeto-configuracion';
+import {validadorCedulaORuc} from '../funciones/form-builder/validadores-comunes/validador-cedula-ruc';
 
 export class CampoCedulaRucClass {
   esValido = false;
   estaCargando = false;
-  campoRucCedulaFormulario: FormGroup;
+  cedulaRucFormGroup: FormGroup;
   mensajesValidacionBusquedaRucCedula: MensajesValidacionCedulaRuc;
-  configuracionFormBuilder: ConfiguracionFormBuilder;
-  validaciones: { [nombreValidador: string]: boolean } | null[];
-  constructor(public busquedaCedulaRuc?: string) {
+
+  constructor(public busquedaCedulaRuc?: string,
+              public validarCedula = false,
+              public validarRUC = false) {
     this.establecerMensajesValidacionBusquedaRucCedula();
   }
-  private establecerMensajesValidacionBusquedaRucCedula(){
-    this.mensajesValidacionBusquedaRucCedula = establecerMensajesDeValidacionComunes('busquedaRucCedula', 'Cédula / RUC',
-      'EJ: 1700000000001',
-      10,
-      13);
-    establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
-      false,
-      'rucValido',
-      'Cédula / RUC');
-    establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
-      false,
-      'cedulaValida',
-      'Cédula / RUC');
-    this.mensajesValidacionBusquedaRucCedula.configuracionFormBuilder = {
+
+  private establecerMensajesValidacionBusquedaRucCedula() {
+    if (!this.validarCedula && !this.validarRUC) {
+      this.validarCedula = true;
+      this.validarRUC = true;
+    }
+    let nombreAPresentarse = 'Cédula / RUC';
+    let tooltip = 'EJ: 1700000001 / 1700000000001';
+    let minlength = 10;
+    let maxlength = 13;
+    if (this.validarRUC && !(this.validarCedula)) {
+      tooltip = 'EJ: 1700000000001';
+      nombreAPresentarse = 'RUC';
+      minlength = 13;
+      this.mensajesValidacionBusquedaRucCedula = establecerMensajesDeValidacionComunes('busquedaRucCedula',
+        nombreAPresentarse,
+        tooltip,
+        'Número del registro único de contribuyente',
+        minlength,
+        maxlength);
+      establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
+        false,
+        'rucValido',
+        nombreAPresentarse,
+        'El RUC no cumple con el formato.');
+
+    }
+    if (this.validarCedula && !(this.validarRUC)) {
+      nombreAPresentarse = 'Cédula';
+      maxlength = 10;
+      tooltip = 'EJ: 1700000001';
+      this.mensajesValidacionBusquedaRucCedula = establecerMensajesDeValidacionComunes('busquedaRucCedula',
+        nombreAPresentarse,
+        tooltip,
+        'Número del registro único de contribuyente',
+        minlength,
+        maxlength);
+      establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
+        false,
+        'cedulaValida',
+        nombreAPresentarse,
+        'La cédula no cumple con el formato.');
+    }
+
+
+    if (this.validarCedula && this.validarCedula) {
+      this.mensajesValidacionBusquedaRucCedula = establecerMensajesDeValidacionComunes('busquedaRucCedula',
+        nombreAPresentarse,
+        tooltip,
+        'Número del registro único de contribuyente',
+        minlength,
+        maxlength);
+      establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
+        false,
+        'cedulaValida',
+        nombreAPresentarse,
+        'La cédula no cumple con el formato.');
+      establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
+        false,
+        'rucValido',
+        nombreAPresentarse,
+        'El RUC no cumple con el formato.');
+      establecerObjetoValidacionPersonalizado(this.mensajesValidacionBusquedaRucCedula,
+        false,
+        'noEsCedulaNiRuc',
+        nombreAPresentarse,
+        'La cédula o RUC debe tener 10 o 13 dígitos.');
+    }
+
+    this.mensajesValidacionBusquedaRucCedula
+      .configuracionFormBuilder = {
       required: {
         activado: true
       },
@@ -55,25 +112,20 @@ export class CampoCedulaRucClass {
       pattern: {
         activado: false
       },
-      cedulaValida: {
-        activado: false,
-        funcion: validadorCedula
-      },
-      rucValido: {
-        activado: false,
-        funcion: validadorRuc
-      },
+      noEsCedulaNiRuc: {
+        activado: true,
+        funcion: validadorCedulaORuc(this.validarCedula, this.validarRUC)
+      }
     };
   }
 }
 
+
 interface MensajesValidacionCedulaRuc extends ObjetoMensajeValidacionInterfaz {
-  esRucValido?: MensajeValidacionInterfaz;
-  esCedulaValido?: MensajeValidacionInterfaz;
+  noEsCedulaNiRuc?: MensajeValidacionInterfaz;
   configuracionFormBuilder: ObjetoConfiguracionCedulaRuc;
 }
 
 interface ObjetoConfiguracionCedulaRuc extends ObjetoConfiguracion {
-  cedulaValida?: ItemObjetoConfiguracion;
-  rucValido?: ItemObjetoConfiguracion;
+  noEsCedulaNiRuc?: ItemObjetoConfiguracion;
 }

@@ -1,4 +1,4 @@
-function validarCedula(cedula: string) {
+export function validarCedula(cedula: string) {
   // Créditos: Victor Diaz De La Gasca.
   // Autor: Adrián Egüez
   // Preguntamos si la cedula consta de 10 digitos

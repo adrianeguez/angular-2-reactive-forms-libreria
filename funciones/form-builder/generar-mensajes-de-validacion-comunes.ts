@@ -9,18 +9,20 @@ import {establecerObjetoValidacionEmail} from './establecer-objeto-validacion-em
 
 export function establecerMensajesDeValidacionComunes(nombreInput: string,
                                                       nombreAPresentarse: string,
-                                                      tooltip: string,
+                                                      tooltip?: string,
+                                                      title?: string,
                                                       minLengthParametro?: number,
                                                       maxLengthParametro?: number,
                                                       minParametro?: number,
                                                       maxParametro?: number,
-                                                      pattern?: string):any {
+                                                      pattern?: string): any {
   const minLength = minLengthParametro ? minLengthParametro : 3;
   const maxLength = maxLengthParametro ? maxLengthParametro : 255;
   let objeto: ObjetoMensajeValidacionInterfaz = {
-    mensaje: [],
+    mensajes: [],
     tooltip,
-    nombreInput
+    nombreInput,
+    title
   };
   objeto = establecerObjetoValidacionRequired(objeto, nombreAPresentarse);
   objeto = establecerObjetoValidacionEmail(objeto, nombreAPresentarse);
