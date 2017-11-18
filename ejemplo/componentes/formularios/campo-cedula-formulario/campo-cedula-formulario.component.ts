@@ -21,8 +21,6 @@ export class CampoCedulaFormularioComponent implements OnInit {
     this.cedula.campoCedulaFormGroup = this._formBuilder.group(encerarFormBuilder(this.cedula));
 
     const inputCedulaAbstractControl = this.cedula.campoCedulaFormGroup.get(this.cedula.mensajesValidacionBusquedaCedula.nombreInput);
-
-
     inputCedulaAbstractControl
       .valueChanges
       .subscribe(

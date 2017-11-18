@@ -11,26 +11,33 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
                                                       nombreAPresentarse: string,
                                                       tooltip?: string,
                                                       title?: string,
+                                                      mask?: any,
                                                       minLengthParametro?: number,
                                                       maxLengthParametro?: number,
                                                       minParametro?: number,
                                                       maxParametro?: number,
-                                                      pattern?: string): any {
-  const minLength = minLengthParametro ? minLengthParametro : 3;
-  const maxLength = maxLengthParametro ? maxLengthParametro : 255;
-  let objeto: ObjetoMensajeValidacionInterfaz = {
-    mensajes: [],
-    tooltip,
-    nombreInput,
-    title
-  };
-  objeto = establecerObjetoValidacionRequired(objeto, nombreAPresentarse);
-  objeto = establecerObjetoValidacionEmail(objeto, nombreAPresentarse);
-  objeto = establecerObjetoValidacionMinLength(objeto, nombreAPresentarse, minLength);
-  objeto = establecerObjetoValidacionMaxLength(objeto, nombreAPresentarse, maxLength);
-  objeto = establecerObjetoValidacionMin(objeto, nombreAPresentarse, minParametro);
-  objeto = establecerObjetoValidacionMax(objeto, nombreAPresentarse, maxParametro);
-  objeto = establecerObjetoValidacionPattern(objeto, pattern, nombreAPresentarse);
-  return objeto;
+                                                      pattern?: string,
+                                                      disabled = false): any {
+    const minLength = minLengthParametro ? minLengthParametro : 3;
+    const maxLength = maxLengthParametro ? maxLengthParametro : 255;
+    let objeto: ObjetoMensajeValidacionInterfaz = {
+        mensajes: [],
+        tooltip,
+        nombreInput,
+        title,
+        disabled,
+        nombreAPresentarse,
+        mask
+    };
+    objeto = establecerObjetoValidacionRequired(objeto, nombreAPresentarse);
+    objeto = establecerObjetoValidacionEmail(objeto, nombreAPresentarse);
+    objeto = establecerObjetoValidacionMinLength(objeto, nombreAPresentarse, minLength);
+    objeto = establecerObjetoValidacionMaxLength(objeto, nombreAPresentarse, maxLength);
+    objeto = establecerObjetoValidacionMin(objeto, nombreAPresentarse, minParametro);
+    objeto = establecerObjetoValidacionMax(objeto, nombreAPresentarse, maxParametro);
+    objeto = establecerObjetoValidacionPattern(objeto, pattern, nombreAPresentarse);
+    return objeto;
 }
+
+
 
