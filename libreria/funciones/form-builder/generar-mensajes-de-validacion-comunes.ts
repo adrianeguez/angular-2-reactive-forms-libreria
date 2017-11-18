@@ -12,6 +12,7 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
                                                       tooltip?: string,
                                                       title?: string,
                                                       mask?: any,
+                                                      eliminarMascara?: (...parametros) => any,
                                                       minLengthParametro?: number,
                                                       maxLengthParametro?: number,
                                                       minParametro?: number,
@@ -19,8 +20,6 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
                                                       pattern?: string,
                                                       patternMensaje?: string,
                                                       disabled = false): any {
-    const minLength = minLengthParametro ? minLengthParametro : 3;
-    const maxLength = maxLengthParametro ? maxLengthParametro : 255;
     let objeto: ObjetoMensajeValidacionInterfaz = {
         mensajes: [],
         tooltip,
@@ -28,12 +27,13 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
         title,
         disabled,
         nombreAPresentarse,
-        mask
+        mask,
+        eliminarMascara
     };
     objeto = establecerObjetoValidacionRequired(objeto, nombreAPresentarse);
     objeto = establecerObjetoValidacionEmail(objeto, nombreAPresentarse);
-    objeto = establecerObjetoValidacionMinLength(objeto, nombreAPresentarse, minLength);
-    objeto = establecerObjetoValidacionMaxLength(objeto, nombreAPresentarse, maxLength);
+    objeto = establecerObjetoValidacionMinLength(objeto, nombreAPresentarse, minLengthParametro);
+    objeto = establecerObjetoValidacionMaxLength(objeto, nombreAPresentarse, maxLengthParametro);
     objeto = establecerObjetoValidacionMin(objeto, nombreAPresentarse, minParametro);
     objeto = establecerObjetoValidacionMax(objeto, nombreAPresentarse, maxParametro);
     objeto = establecerObjetoValidacionPattern(objeto, pattern, nombreAPresentarse, patternMensaje);
