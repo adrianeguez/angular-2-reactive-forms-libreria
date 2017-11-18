@@ -17,6 +17,7 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
                                                       minParametro?: number,
                                                       maxParametro?: number,
                                                       pattern?: string,
+                                                      patternMensaje?: string,
                                                       disabled = false): any {
     const minLength = minLengthParametro ? minLengthParametro : 3;
     const maxLength = maxLengthParametro ? maxLengthParametro : 255;
@@ -35,7 +36,7 @@ export function establecerMensajesDeValidacionComunes(nombreInput: string,
     objeto = establecerObjetoValidacionMaxLength(objeto, nombreAPresentarse, maxLength);
     objeto = establecerObjetoValidacionMin(objeto, nombreAPresentarse, minParametro);
     objeto = establecerObjetoValidacionMax(objeto, nombreAPresentarse, maxParametro);
-    objeto = establecerObjetoValidacionPattern(objeto, pattern, nombreAPresentarse);
+    objeto = establecerObjetoValidacionPattern(objeto, pattern, nombreAPresentarse, patternMensaje);
     return objeto;
 }
 
