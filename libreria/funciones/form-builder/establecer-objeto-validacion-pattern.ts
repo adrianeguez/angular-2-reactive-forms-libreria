@@ -8,3 +8,4 @@ export function establecerObjetoValidacionPattern(objeto: any,
     };
     return objeto;
 }
+

@@ -1,4 +1,4 @@
-export function generarCampos(clase) {
+export function generarCampos(clase): any {
     const campos = {};
     Object
         .keys(clase)
